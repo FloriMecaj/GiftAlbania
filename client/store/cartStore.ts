@@ -42,13 +42,11 @@ export const useCartStore = create<CartStore>()(
                   ? { ...cartItem, quantity: cartItem.quantity + 1 }
                   : cartItem,
               ),
-              isOpen: true,
             };
           }
 
           return {
             items: [...state.items, { ...item, quantity: 1 }],
-            isOpen: true,
           };
         }),
       removeItem: (id, customization) =>

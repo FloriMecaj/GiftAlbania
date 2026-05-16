@@ -18,6 +18,7 @@ export function Navbar() {
   const items = useCartStore((state) => state.items);
   const toggleCart = useCartStore((state) => state.toggleCart);
   const wishlistItems = useWishlistStore((state) => state.items);
+  const toggleWishlist = useWishlistStore((state) => state.toggleWishlist);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -78,12 +79,12 @@ export function Navbar() {
             <button className="icon-button" aria-label="Search">
               <Search className="h-4 w-4" />
             </button>
-            <Link href="/wishlist" className="icon-button relative" aria-label="Wishlist">
+            <button onClick={() => toggleWishlist(true)} className="icon-button relative" aria-label="Wishlist">
               <Heart className="h-4 w-4" />
               {wishlistItems.length ? (
                 <span className="badge-count">{wishlistItems.length}</span>
               ) : null}
-            </Link>
+            </button>
             <button onClick={() => toggleCart(true)} className="icon-button relative" aria-label="Cart">
               <ShoppingBag className="h-4 w-4" />
               {cartCount ? <span className="badge-count">{cartCount}</span> : null}
@@ -146,10 +147,10 @@ export function Navbar() {
                 <ShoppingBag className="h-5 w-5" />
                 {cartCount ? <span className="badge-count">{cartCount}</span> : null}
               </button>
-              <Link href="/wishlist" onClick={() => setIsOpen(false)} className="icon-button relative">
+              <button onClick={() => { setIsOpen(false); toggleWishlist(true); }} className="icon-button relative">
                 <Heart className="h-5 w-5" />
                 {wishlistItems.length ? <span className="badge-count">{wishlistItems.length}</span> : null}
-              </Link>
+              </button>
               <a href="https://www.instagram.com/gift.albania/" target="_blank" rel="noreferrer" className="icon-button">
                 <Instagram className="h-5 w-5" />
               </a>

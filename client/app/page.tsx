@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { KeywordCarousel } from "@/components/KeywordCarousel";
 import { ProductCard } from "@/components/ProductCard";
 import { products, shopCategories } from "@/lib/data";
 
@@ -75,10 +76,17 @@ export default function HomePage() {
       </section>
 
       <section className="marquee-shell border-y border-[var(--border-subtle)] py-5">
-        <div className="marquee-track text-sm uppercase tracking-[0.45em] text-[var(--text-muted)]">
-          <span>Personalized Gifts · Home Decor · 3D Models · Made with Love · Albania · </span>
-          <span>Personalized Gifts · Home Decor · 3D Models · Made with Love · Albania · </span>
-        </div>
+        <KeywordCarousel
+          className="w-full"
+          itemClassName="text-sm"
+          items={[
+            "Personalized Gifts",
+            "Home Decor",
+            "3D Models",
+            "Made with Love",
+            "Albania",
+          ]}
+        />
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">

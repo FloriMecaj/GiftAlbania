@@ -2,22 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { InstagramGrid } from "@/components/InstagramGrid";
+import { KeywordCarousel } from "@/components/KeywordCarousel";
 import { navLinks } from "@/lib/data";
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-[var(--border-subtle)] bg-[var(--bg-secondary)]/70">
       <div className="marquee-shell border-b border-[var(--border-subtle)] py-4">
-        <div className="marquee-track text-xs uppercase tracking-[0.45em] text-[var(--text-muted)]">
-          <span>
-            Personalized Gifts · Home Decor · 3D Architectural Models · Dhurata
-            te personalizuara ·{" "}
-          </span>
-          <span>
-            Personalized Gifts · Home Decor · 3D Architectural Models · Dhurata
-            te personalizuara ·{" "}
-          </span>
-        </div>
+        <KeywordCarousel
+          className="w-full"
+          compact
+          itemClassName="text-xs"
+          items={[
+            "Personalized Gifts",
+            "Home Decor",
+            "3D Architectural Models",
+            "Office Decor",
+            "Custom-Made Pieces",
+            "Handcrafted Decor",
+          ]}
+        />
       </div>
       <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 lg:grid-cols-[1fr_0.6fr_0.95fr] lg:px-8">
         <div>

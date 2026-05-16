@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
       className="group relative overflow-hidden rounded-[2rem] border border-[var(--border-subtle)] bg-white/75 p-4 shadow-card backdrop-blur-sm transition"
     >
       <div className="absolute inset-0 rounded-[2rem] opacity-0 transition duration-500 group-hover:opacity-100 card-shimmer" />
-      <div className="relative z-10">
+      <div className="relative z-10 flex h-full flex-col">
         <div className="relative overflow-hidden rounded-[1.6rem] bg-[var(--bg-secondary)]">
           <Link href={`/product/${product.slug}`}>
             <div className="relative aspect-[4/4.5] overflow-hidden">
@@ -59,7 +59,7 @@ export function ProductCard({ product }: ProductCardProps) {
             className="absolute right-4 top-4"
           />
         </div>
-        <div className="px-2 pb-2 pt-5">
+        <div className="flex flex-1 flex-col px-2 pb-2 pt-5">
           <p className="text-xs uppercase tracking-[0.35em] text-[var(--text-muted)]">
             {product.category}
           </p>
@@ -68,10 +68,10 @@ export function ProductCard({ product }: ProductCardProps) {
               {product.name}
             </h3>
           </Link>
-          <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
+          <p className="mt-2 flex-1 text-sm leading-6 text-[var(--text-muted)]">
             {product.shortDescription}
           </p>
-          <div className="mt-4 flex items-center justify-between gap-3">
+          <div className="mt-4 flex items-end justify-between gap-3">
             <span className="text-lg font-medium text-[var(--accent-charcoal)]">
               {formatPrice(product.price)}
             </span>

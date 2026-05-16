@@ -117,12 +117,58 @@ select {
 
 .marquee-track {
   display: flex;
-  width: max-content;
+  width: fit-content;
   animation: marquee 24s linear infinite;
+  will-change: transform;
 }
 
-.marquee-track span {
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1.5rem;
   white-space: nowrap;
+  padding-right: 1.5rem;
+}
+
+.marquee-group span::after {
+  content: "·";
+  margin-left: 1.5rem;
+}
+
+.keyword-loop-shell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.keyword-loop-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 0;
+  animation: keyword-loop 24s linear infinite;
+  will-change: transform;
+}
+
+.keyword-loop-track-compact {
+  animation-duration: 28s;
+}
+
+.keyword-loop-item {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  color: var(--text-muted);
+  padding-right: 2rem;
+}
+
+.keyword-loop-item::after {
+  content: "·";
+  margin-left: 2rem;
 }
 
 .button-primary,
@@ -243,5 +289,14 @@ select {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes keyword-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-33.333%, 0, 0);
   }
 }
